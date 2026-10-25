@@ -1,0 +1,29 @@
+commit 0d5a892d29cf127d9f53d482a1af6781a12e2ec9 (HEAD -> main, origin/main, origin/HEAD)
+Author: Jared <rainsit2337@gmail.com>
+Date:   Mon Oct 26 00:29:44 2026 +0800
+
+    Main Class
+
+commit 2eeb3e1260346f2a0004d66c95632c2425925f07
+Author: Jared <rainsit2337@gmail.com>
+Date:   Sun Oct 25 18:04:17 2026 +0800
+
+    Added file handler oop
+
+commit f5fab42f6b54ed2320eba51c623a3eca21dbfddf
+Author: Jared <rainsit2337@gmail.com>
+Date:   Sun Oct 25 17:17:48 2026 +0800
+
+    Inventory class
+
+commit 55de3bcc0502f6c77ebfc539125aac7e32c06afc
+Author: Jared <rainsit2337@gmail.com>
+Date:   Sun Oct 25 16:09:48 2026 +0800
+
+    Created product.py
+
+commit 2e8cbde1451e3cc5c874a0f3f6278a8864780f03
+Author: Jared <rainsit2337@gmail.com>
+Date:   Sat Oct 24 23:10:10 2026 +0800
+
+    Initial commit

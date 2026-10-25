@@ -15,7 +15,7 @@ class main:
         self.__product_list, self.__idnum = self.__f.parse_content()
         self.__inventory = inventory.inventory()
         for item in self.__product_list:
-            new_product = product.product(item[0],int(item[1]),int(item[2]),int(item[3]))
+            new_product = product.product(int(item[0]),item[1],int(item[2]),int(item[3]))
             self.__inventory.add_product(new_product)
 
     def __add_product(self):
