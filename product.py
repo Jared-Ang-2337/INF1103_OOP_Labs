@@ -10,3 +10,9 @@ class product:
 
     def display_information(self):
         print ("Product ID : {id}, Name : {name}, Price : {price}, Stock : {stock}".format(id=self.__productid,name=self.__name, price=self.__price, stock=self.__stock))
+
+    def get_productid(self):
+        return self.__productid
+
+    def get_product(self):
+        return [self.__productid, self.__name, self.__price, self.__stock]
