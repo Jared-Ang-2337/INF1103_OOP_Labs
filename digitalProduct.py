@@ -11,3 +11,7 @@ class digitalProduct(product):
 
     def get_fulfilment_info(self):
         print("This is a Digital Product that is delivered digitally.")
+
+    def get_product(self):
+        return {"type": "digital", "id": self._productid, "name": self._name,
+            "price": self._price, "stock": self._stock, "size": self.__size}

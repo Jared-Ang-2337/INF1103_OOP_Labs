@@ -1,0 +1,18 @@
+[
+  {
+    "type": "physical",
+    "id": 1001,
+    "name": "Mouse",
+    "price": 20.0,
+    "stock": 100,
+    "weight": 1.0
+  },
+  {
+    "type": "digital",
+    "id": 1002,
+    "name": "GTA6",
+    "price": 100.0,
+    "stock": 321,
+    "size": 12.0
+  }
+]

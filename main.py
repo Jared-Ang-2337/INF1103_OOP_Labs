@@ -1,8 +1,10 @@
-import product
 import inventory
 import fileHandler
+from physicalProduct import physicalProduct
+from digitalProduct import digitalProduct
+from validator import validator
 
-db_file = "inventory.txt"
+db_file = "inventory.json"
 
 class main:
     def __init__(self,file):
@@ -15,30 +17,39 @@ class main:
         self.__product_list, self.__idnum = self.__f.parse_content()
         self.__inventory = inventory.inventory()
         for item in self.__product_list:
-            new_product = product.product(int(item[0]),item[1],int(item[2]),int(item[3]))
+            if item["type"] == "physical":
+                new_product = physicalProduct(item["id"], item["name"], item["price"], item["stock"], item["weight"])
+            else:
+                new_product = digitalProduct(item["id"], item["name"], item["price"], item["stock"], item["size"])
             self.__inventory.add_product(new_product)
 
     def __add_product(self):
         print("Adding Product")
-        name = input("Product Name : ")
-        price = input("Price : ")
-        stock = input("Stock : ")
+        name = validator.get_str("Product Name : ")
+        price = validator.get_float("Price : ")
+        stock = validator.get_int("Stock : ")
+        type = validator.get_choice("Physical(P) or Digital(D) : ",["P","D"])
         self.__idnum += 1
-        new_product = product.product(self.__idnum,name,price,stock)
+        if type == "P":
+            weight = validator.get_float("Weight : ")
+            new_product = physicalProduct(self.__idnum,name,price,stock,weight)
+        else :
+            size = validator.get_float("Size : ")
+            new_product = digitalProduct(self.__idnum,name,price,stock,size)
         self.__inventory.add_product(new_product)
-        print("Successfulyy added product.\n")
+        print("Successfuly added product.\n")
 
     def __udpate_product(self):
         print("Update Product Stock")
         self.__inventory.display_all()
-        product_id = int(input("Enter Product ID To Change : "))
-        product_stock = int(input("Enter New Stock Amount : "))
+        product_id = validator.get_int("Enter Product ID To Change : ")
+        product_stock = validator.get_int("Enter New Stock Amount : ")
         self.__inventory.update_product(product_id,product_stock)
 
     def __search_product(self):
         print("Search Product")
         self.__inventory.display_all()
-        product_id = int(input("Enter Product ID to Search For : "))
+        product_id = validator.get_int("Enter Product ID to Search For : ")
         self.__inventory.search_product(product_id)
 
     def menu(self):
@@ -50,7 +61,7 @@ class main:
             print("4. Search Product")
             print("5. Save Inventory")
             print("6. Exit")
-            option = int(input("Option : "))
+            option = validator.get_int("Option : ",1,6)
             print("\n")
 
             if option == 1:

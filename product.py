@@ -17,8 +17,11 @@ class product(ABC):
         return self._productid
 
     def get_product(self):
-        return [self._productid, self._name, self._price, self._stock]
+        return {"id": self._productid, "name": self._name,
+            "price": self._price, "stock": self._stock}
+    
 
     @abstractmethod
     def get_fulfilment_info(self):
         pass
+

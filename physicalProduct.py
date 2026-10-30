@@ -17,3 +17,7 @@ class physicalProduct(product,CanBeShipped):
         cost = self.__weight * 2
         print("Shipping cost : ${cost}".format(cost))
         return cost
+
+    def get_product(self):
+        return {"type": "physical", "id": self._productid, "name": self._name,
+            "price": self._price, "stock": self._stock, "weight": self.__weight}
