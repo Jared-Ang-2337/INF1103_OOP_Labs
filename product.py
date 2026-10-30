@@ -9,7 +9,7 @@ class product:
         self._stock = quantity
 
     def display_information(self):
-        print ("Product ID : {id}, Name : {name}, Price : {price}, Stock : {stock}".format(id=self._productid,name=self._name, price=self._price, stock=self._stock))
+        print ("Product ID : {id}, Name : {name}, Price : {price}, Stock : {stock}".format(id=self._productid,name=self._name, price=self._price, stock=self._stock),end = "")
 
     def get_productid(self):
         return self._productid

@@ -6,4 +6,5 @@ class physicalProduct(product.product):
         self.__weight = weight
 
     def display_information(self):
-        print ("Product ID : {id}, Name : {name}, Price : {price}, Stock : {stock}, Weight : {weight}".format(id=self._productid,name=self._name, price=self._price, stock=self._stock, weight=self.__weight))
+        super().display_information()
+        print("Weight : {weight}kg".format(weight=self.__weight))
