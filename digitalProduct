@@ -1,6 +1,6 @@
-import product
+from product import product
 
-class digitalProduct(product.product):
+class digitalProduct(product):
     def __init__(self,productid,name,price,stock,download_size):
         super().__init__(productid,name,price,stock)
         self.__size = download_size
@@ -8,3 +8,6 @@ class digitalProduct(product.product):
     def display_information(self):
         super().display_information()
         print("Download Size : {size} MB".format(size = self.__size))
+
+    def get_fulfilment_info(self):
+        print("This is a Digital Product that is delivered digitally.")
