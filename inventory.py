@@ -1,7 +1,7 @@
 
-import product
+from Product import Product
 
-class inventory:
+class Inventory:
     def __init__(self):
         self.__products = []
 
@@ -12,7 +12,9 @@ class inventory:
     def search_product(self,id_num):
         for product in self.__products:
             if product.get_productid() == id_num:
+                product.get_
                 return product.display_information()
+            
         print("Product not found.\n")
 
     def update_product(self,id_num,stock):
@@ -30,6 +32,9 @@ class inventory:
 
 
     def display_all(self):
-        for product in self.__products:
-            product.display_information()
-        print ("")
+        if self.__products:
+            for product in self.__products:
+                product.display_information()
+            print ("")
+        else :
+            print ("No products")

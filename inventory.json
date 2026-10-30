@@ -14,5 +14,13 @@
     "price": 100.0,
     "stock": 321,
     "size": 12.0
+  },
+  {
+    "type": "physical",
+    "id": 1003,
+    "name": "Keyboard",
+    "price": 150.0,
+    "stock": 5,
+    "weight": 2.1
   }
 ]

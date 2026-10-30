@@ -2,7 +2,7 @@ FROM python:3.14-slim
 
 WORKDIR /app
 
-COPY main.py inventory.py product.py fileHandler.py ./
-COPY inventory.txt ./
+COPY *.py ./
+COPY inventory.json ./
 
 CMD ["python", "main.py"]

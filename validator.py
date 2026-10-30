@@ -1,4 +1,4 @@
-class validator:
+class Validator:
     @staticmethod
     def get_int(prompt, minimum=None, maximum=None):
         while True:

@@ -1,7 +1,7 @@
 import json
 
 
-class fileHandler:
+class FileHandler:
     def __init__(self, file):
         self.__file = file
         self.__content = self.__read_file()
@@ -26,7 +26,7 @@ class fileHandler:
 
     def parse_content(self):
         new_list = list(self.__content)
-        order_num = int(new_list[-1][0]) if new_list else 1000
+        order_num = int(new_list[-1]["id"]) if new_list else 1000
         return new_list, order_num
 
 

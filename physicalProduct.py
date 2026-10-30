@@ -1,7 +1,7 @@
-from product import product
+from Product import Product
 from CanBeShipped import CanBeShipped
 
-class physicalProduct(product,CanBeShipped):
+class PhysicalProduct(Product,CanBeShipped):
     def __init__(self,productid,name,price,stock,weight):
         super().__init__(productid,name,price,stock)
         self.__weight = weight
