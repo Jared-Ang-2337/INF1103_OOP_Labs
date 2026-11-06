@@ -1,8 +1,9 @@
-from Inventory import Inventory
-from FileHandler import FileHandler
-from PhysicalProduct import PhysicalProduct
-from DigitalProduct import DigitalProduct
-from Validator import Validator
+from inventory import Inventory
+from fileHandler import FileHandler
+from physicalProduct import PhysicalProduct
+from digitalProduct import DigitalProduct
+from validator import Validator
+from supplier import Supplier
 
 db_file = "inventory.json"
 
@@ -16,12 +17,22 @@ class main:
     def __set_inventory(self):
         self.__product_list, self.__idnum = self.__f.parse_content()
         self.__inventory = Inventory()
+        # Suppliers are created independently, then shared by the products that use them.
+        self.__suppliers = {}
         for item in self.__product_list:
+            supplier = self.__get_supplier(item.get("supplier"))
             if item["type"] == "physical":
-                new_product = PhysicalProduct(item["id"], item["name"], item["price"], item["stock"], item["weight"])
+                new_product = PhysicalProduct(item["id"], item["name"], item["price"], item["stock"], item["weight"], supplier)
             else:
-                new_product = DigitalProduct(item["id"], item["name"], item["price"], item["stock"], item["size"])
+                new_product = DigitalProduct(item["id"], item["name"], item["price"], item["stock"], item["size"], supplier)
             self.__inventory.add_product(new_product)
+
+    def __get_supplier(self, data):
+        data = data or {"supplier_id": "S000", "name": "Unknown Supplier", "contact_email": "n/a"}
+        sid = data["supplier_id"]
+        if sid not in self.__suppliers:
+            self.__suppliers[sid] = Supplier(sid, data["name"], data["contact_email"])
+        return self.__suppliers[sid]
 
     def __add_product(self):
         print("Adding Product")
@@ -29,13 +40,17 @@ class main:
         price = Validator.get_float("Price : ")
         stock = Validator.get_int("Stock : ")
         type = Validator.get_choice("Physical(P) or Digital(D) : ",["P","D"])
+        supplier = self.__get_supplier({
+            "supplier_id": Validator.get_str("Supplier ID : "),
+            "name": Validator.get_str("Supplier Name : "),
+            "contact_email": Validator.get_str("Supplier Email : ")})
         self.__idnum += 1
         if type == "P":
             weight = Validator.get_float("Weight : ")
-            new_product = PhysicalProduct(self.__idnum,name,price,stock,weight)
+            new_product = PhysicalProduct(self.__idnum,name,price,stock,weight,supplier)
         else :
             size = Validator.get_float("Size : ")
-            new_product = DigitalProduct(self.__idnum,name,price,stock,size)
+            new_product = DigitalProduct(self.__idnum,name,price,stock,size,supplier)
         self.__inventory.add_product(new_product)
         print("Successfuly added product.\n")
 
