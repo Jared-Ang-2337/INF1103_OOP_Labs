@@ -1,4 +1,40 @@
-commit 0d5a892d29cf127d9f53d482a1af6781a12e2ec9 (HEAD -> main, origin/main, origin/HEAD)
+commit 4402fa1838689f43be777b419f719ea2357368c0 (HEAD -> main, origin/main, origin/HEAD)
+Author: Jared <rainsit2337@gmail.com>
+Date:   Sat Oct 31 01:02:00 2026 +0800
+
+    Dockerfile changes
+
+commit d07803d0a2a4622edd5a44ea65cc8b0b520ff738
+Author: Jared <rainsit2337@gmail.com>
+Date:   Fri Oct 30 15:35:30 2026 +0800
+
+    Integration to Main, added validator
+
+commit c662d516a18c79844a8a3a415b412257043bce4e
+Author: Jared <rainsit2337@gmail.com>
+Date:   Fri Oct 30 14:52:43 2026 +0800
+
+    Added CanBeShipped abs class and its implementation in physicalProduct
+
+commit 5dd8d9fc02a7c6cbb365e20d877bdb54317328a8
+Author: Jared <rainsit2337@gmail.com>
+Date:   Fri Oct 30 14:39:57 2026 +0800
+
+    Added digitalProduct class
+
+commit ec15699fb3d7840e6d2b6cc6c0856ddf5e703ef8
+Author: Jared <rainsit2337@gmail.com>
+Date:   Fri Oct 30 14:30:12 2026 +0800
+
+    Added physicalProduct class
+
+commit 624d58242f2ca7d458e962302596927384ce20d5
+Author: Jared <rainsit2337@gmail.com>
+Date:   Mon Oct 26 00:46:22 2026 +0800
+
+    docker
+
+commit 0d5a892d29cf127d9f53d482a1af6781a12e2ec9
 Author: Jared <rainsit2337@gmail.com>
 Date:   Mon Oct 26 00:29:44 2026 +0800
 
